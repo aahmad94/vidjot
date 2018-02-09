@@ -9,7 +9,6 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-
 // Index Route
 
 app.get('/', (req, res) => {
