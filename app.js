@@ -1,16 +1,22 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
+const mongoose = require('mongoose');
 const app = express();
 
-// Handlebars middleware
+// Map global promise - get rid of warning 
+mongoose.Promise = global.Promise;
+// Connect to mongoose 
+mongoose.connect('mongodb://localhost/vidjot-dev')
+.then(() => console.log('MongoDB Connected...'))
+.catch((err) => console.log(err));
 
+// Handlebars middleware
 app.engine('handlebars', exphbs({
   defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
 
 // Index Route
-
 app.get('/', (req, res) => {
   const title = 'Welcome';
   res.render('index', {
@@ -19,7 +25,6 @@ app.get('/', (req, res) => {
 });   
 
 // About Route
-
 app.get('/about', (req, res) => {
   res.render('about');
 });   
