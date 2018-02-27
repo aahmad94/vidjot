@@ -12,7 +12,7 @@ mongoose.connect('mongodb://localhost/vidjot-dev')
 
 // Load Idea Model 
 require('./models/Idea');
-const Idea = mongoose.model('ideas')
+const Idea = mongoose.model('ideas');
 
 // Handlebars middleware
 app.engine('handlebars', exphbs({
