@@ -38,6 +38,11 @@ app.get('/about', (req, res) => {
     res.render('ideas/add');
   });   
 
+// Process form
+app.post('/ideas', (req, res) => {
+  res.send('ok');
+});
+
 const port = 5000;
 
 app.listen(port, () => {
